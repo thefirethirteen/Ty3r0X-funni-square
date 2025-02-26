@@ -6,10 +6,10 @@ But I uploaded it nontheless for them sweet sweet activity boxes >:)
 
 Make sure you have the following dependencies installed on your system:
 
-- SDL2
-- SDL2-dev/devel
-- SDL2_ttf
-- SDL2_ttf-dev/devel
+- SDL3
+- SDL3-dev/devel
+- SDL3_ttf
+- SDL3_ttf-dev/devel
 
 ## How to run
 
