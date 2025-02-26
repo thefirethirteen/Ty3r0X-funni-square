@@ -134,8 +134,8 @@ main (int argc, const char *argv[]) {
 				case SDL_EVENT_MOUSE_MOTION:
 					if (check_interaction_in_rect (main_event->motion.x, main_event->motion.y, rectangle)) {
 						printf ("Mouse cursor is inside the square at position (%d,%d)\n",
-						        main_event->motion.x,
-						        main_event->motion.y);
+						        (int) main_event->motion.x,
+						        (int) main_event->motion.y);
 
 						ray.x *= -1;
 						ray.y *= -1;
