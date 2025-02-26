@@ -85,13 +85,13 @@ main (int argc, const char *argv[]) {
 		/* Background render*/
 
 		SDL_SetRenderTarget (main_render, background);
-		SDL_SetRenderDrawColor (main_render, bg_red, bg_green, bg_blue, 0x00);
+		SDL_SetRenderDrawColor (main_render, bg_red, bg_green, bg_blue, SDL_ALPHA_OPAQUE);
 		SDL_RenderClear (main_render);
 
 		/* Rectangle render */
 
-		SDL_SetRenderDrawColor (main_render, HEX_POKE, 0x00, 0x00, 0x00);
 		SDL_RenderRect (main_render, rectangle);
+		SDL_SetRenderDrawColor (main_render, HEX_POKE, 0x00, 0x00, SDL_ALPHA_OPAQUE);
 		SDL_RenderFillRect (main_render, rectangle);
 		SDL_SetRenderTarget (main_render, NULL);
 		SDL_RenderTexture (main_render, background, NULL, NULL);
