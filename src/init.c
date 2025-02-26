@@ -59,11 +59,9 @@ init_program (void) {
 	/* window variable initialization */
 
 	window = SDL_CreateWindow ("Hello There",
-	                           POS_X,
-	                           POS_Y,
 	                           SCREEN_WIDTH,
 	                           SCREEN_HEIGHT,
-	                           SDL_WINDOW_SHOWN);
+	                           0);
 
 	if (window == NULL) {
 		return fprintf (stderr, "SDL Window Creation Error: %s\n", SDL_GetError ());
@@ -71,7 +69,7 @@ init_program (void) {
 
 	/* Background initialization */
 
-	main_render = SDL_CreateRenderer (window, -1, 0);
+	main_render = SDL_CreateRenderer (window, NULL);
 	background  = SDL_CreateTexture (main_render,
                                         SDL_PIXELFORMAT_RGBA8888,
                                         SDL_TEXTUREACCESS_TARGET,

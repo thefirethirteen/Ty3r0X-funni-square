@@ -34,8 +34,10 @@
 
 #define SCREEN_WIDTH  800.0
 #define SCREEN_HEIGHT 600.0
+/*
 #define POS_X         100
 #define POS_Y         100
+*/
 
 #define COLOR_R 0xFF
 #define COLOR_G 0xA5
