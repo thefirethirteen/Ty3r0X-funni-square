@@ -83,7 +83,7 @@ main (int argc, const char *argv[]) {
 
 		SDL_GetTextureSize(text_texture, &counter_box.w, &counter_box.h);
 
-		/* Background render*/
+		/* Background render */
 
 		SDL_SetRenderTarget (main_render, background);
 		SDL_SetRenderDrawColor (main_render, bg_red, bg_green, bg_blue, SDL_ALPHA_OPAQUE);
