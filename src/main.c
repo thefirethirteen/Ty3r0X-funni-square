@@ -43,6 +43,7 @@ main (int argc, const char *argv[]) {
 	Uint8 bg_blue  = 0x00;
 
 	printf ("MMXXIII Ty3r0X\n");
+	printf ("MMXXV   thefirethirteen\n");
 
 	if (init_program () != EXIT_SUCCESS)
 		return EXIT_FAILURE;
