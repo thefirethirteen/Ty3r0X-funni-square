@@ -39,12 +39,12 @@ SDL_Window   *window;
 SDL_Renderer *main_render;
 SDL_Event    *main_event;
 SDL_Texture  *background;
-SDL_Rect     *rectangle;
+SDL_FRect    *rectangle;
 SDL_Surface  *text_surface;
 SDL_Texture  *text_texture;
 TTF_Font     *text_font;
 SDL_Color    *text_color;
-SDL_Rect      counter_box;
+SDL_FRect     counter_box;
 
 int
 init_program (void) {
@@ -78,7 +78,7 @@ init_program (void) {
 
 	/* Initialize rectangle*/
 
-	rectangle    = calloc (1, sizeof (SDL_Rect));
+	rectangle    = calloc (1, sizeof (SDL_FRect));
 	rectangle->w = RECT_SIZE;
 	rectangle->h = RECT_SIZE;
 

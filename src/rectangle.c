@@ -26,7 +26,7 @@
 
 /* Function to check if a coordinate (x, y) is inside a rectangle */
 int
-check_interaction_in_rect (int x_cursor, int y_cursor, struct SDL_Rect *rect) {
+check_interaction_in_rect (float x_cursor, float y_cursor, const struct SDL_FRect *rect) {
 	/* Check X coordinate is within rectangle range */
 	if (x_cursor >= rect->x && x_cursor < (rect->x + rect->w)) {
 		/* Check Y coordinate is within rectangle range */

@@ -52,13 +52,13 @@
 extern SDL_Window   *window;
 extern SDL_Renderer *main_render;
 extern SDL_Texture  *background;
-extern SDL_Rect     *rectangle;
+extern SDL_FRect    *rectangle;
 extern SDL_Event    *main_event;
 extern SDL_Surface  *text_surface;
 extern SDL_Texture  *text_texture;
 extern TTF_Font     *text_font;
 extern SDL_Color    *text_color;
-extern SDL_Rect      counter_box;
+extern SDL_FRect     counter_box;
 
 struct pos {
 	int x;
@@ -66,6 +66,6 @@ struct pos {
 };
 
 int init_program (void);
-int check_interaction_in_rect (int x_cursor, int y_cursor, struct SDL_Rect *rect);
+int check_interaction_in_rect (float x_cursor, float y_cursor, const struct SDL_FRect *rect);
 
 #endif
