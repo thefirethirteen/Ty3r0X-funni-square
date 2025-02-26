@@ -75,12 +75,12 @@ main (int argc, const char *argv[]) {
 
 		snprintf (counter_text, sizeof (counter_text), "%d", counter);
 
-		text_surface = TTF_RenderText_Solid (text_font, counter_text, *text_color);
+		text_surface = TTF_RenderText_Solid (text_font, counter_text, strlen(counter_text), *text_color);
 		text_texture = SDL_CreateTextureFromSurface (main_render, text_surface);
 
 		/* Snatch counter_box's width and size by querying text_surface */
 
-		SDL_QueryTexture (text_texture, NULL, NULL, &counter_box.w, &counter_box.h);
+		SDL_GetTextureSize(text_texture, &counter_box.w, &counter_box.h);
 
 		/* Background render*/
 
@@ -90,15 +90,15 @@ main (int argc, const char *argv[]) {
 
 		/* Rectangle render */
 
-		SDL_RenderDrawRect (main_render, rectangle);
 		SDL_SetRenderDrawColor (main_render, HEX_POKE, 0x00, 0x00, 0x00);
+		SDL_RenderRect (main_render, rectangle);
 		SDL_RenderFillRect (main_render, rectangle);
 		SDL_SetRenderTarget (main_render, NULL);
-		SDL_RenderCopy (main_render, background, NULL, NULL);
+		SDL_RenderTexture (main_render, background, NULL, NULL);
 
 		/* Counter render */
 
-		SDL_RenderCopy (main_render, text_texture, NULL, &counter_box);
+		SDL_RenderTexture (main_render, text_texture, NULL, &counter_box);
 
 		/* All finished, time to show on screen */
 
@@ -107,7 +107,7 @@ main (int argc, const char *argv[]) {
 		/* Free memory before next loop iteration */
 
 		SDL_DestroyTexture (text_texture);
-		SDL_FreeSurface (text_surface);
+		SDL_DestroySurface (text_surface);
 
 		/* Normally the rect constantly goes up diagonally, if it reaches a
 		 * corner the next position gets multiplied with -1 on its respective
@@ -124,14 +124,14 @@ main (int argc, const char *argv[]) {
 		while (SDL_PollEvent (main_event))
 			switch (main_event->type) {
 
-				case SDL_QUIT:
+				case SDL_EVENT_QUIT:
 					printf ("Quit event detected, now exiting.\n");
 					SDL_DestroyRenderer (main_render);
 					SDL_DestroyWindow (window);
 					SDL_Quit ();
 					return EXIT_SUCCESS;
 
-				case SDL_MOUSEMOTION:
+				case SDL_EVENT_MOUSE_MOTION:
 					if (check_interaction_in_rect (main_event->motion.x, main_event->motion.y, rectangle)) {
 						printf ("Mouse cursor is inside the square at position (%d,%d)\n",
 						        main_event->motion.x,
