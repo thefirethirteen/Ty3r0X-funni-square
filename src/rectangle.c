@@ -22,7 +22,7 @@
 
 #include "window.h"
 
-#include <SDL2/SDL_stdinc.h>
+#include <SDL3/SDL_stdinc.h>
 
 /* Function to check if a coordinate (x, y) is inside a rectangle */
 int
